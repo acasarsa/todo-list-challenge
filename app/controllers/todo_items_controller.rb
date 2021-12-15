@@ -15,6 +15,7 @@ class TodoItemsController < ApplicationController
                      end
 
     @todo_items = filtered_todos.sort_by(&:created_at).reverse
+    @todo_item = TodoItem.new
   end
 
   # GET /todo_items/1 or /todo_items/1.json
