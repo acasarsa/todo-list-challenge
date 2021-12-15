@@ -5,7 +5,16 @@ class TodoItemsController < ApplicationController
 
   # GET /todo_items or /todo_items.json
   def index
-    @todo_items = TodoItem.all
+    filtered_todos = case params[:completed]
+                     when 'true'
+                       TodoItem.where(completed: true)
+                     when 'false'
+                       TodoItem.where(completed: false)
+                     else
+                       TodoItem.all
+                     end
+
+    @todo_items = filtered_todos.sort_by(&:created_at).reverse
   end
 
   # GET /todo_items/1 or /todo_items/1.json

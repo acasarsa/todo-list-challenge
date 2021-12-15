@@ -8,8 +8,8 @@ A user should be able to:
 * Add new todos to the list √
 * Mark todos as complete √
 * Delete todos from the list √
-* Filter their todos by all/active/complete
-* Clear all completed todos
+* Filter their todos by all/active/complete √
+* Clear all completed todos √
 
 # Install
 ```

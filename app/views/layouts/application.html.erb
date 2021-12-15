@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <%= render 'filter_form'%>
     <%= yield %>
+    <%= link_to 'Delete all completed tasks', destroy_all_completed_todo_items_path, data: { confirm: 'Are you sure?' } %>
   </body>
 </html>

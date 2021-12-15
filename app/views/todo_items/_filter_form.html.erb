@@ -1,0 +1,6 @@
+<%= form_for todo_items_path, :method => 'get' do %>
+  <div class='input-group form-inline mr-sm-2'>
+    <%= select_tag :completed, options_for_select([['All', 'all'], ['Completed', true], ['Active', false]]), prompt: "Select Filter", class: 'form-control mr-sm-2' %>
+    <%= submit_tag 'Filter', class: 'btn btn-outline-success mr-sm-4' %>  
+  </div>
+<% end %>
