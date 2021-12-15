@@ -6,7 +6,7 @@ This is a Simple Todo App.
 A user should be able to:
 
 * Add new todos to the list √
-* Mark todos as complete √
+* Mark todos as complete √  **currently working on making this better and adding some more styling
 * Delete todos from the list √
 * Filter their todos by all/active/complete √
 * Clear all completed todos √
