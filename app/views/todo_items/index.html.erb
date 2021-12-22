@@ -1,18 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <table class='table table-hover table-sm table-bordered'>
-
   <tbody>
     <% @todo_items.each do |todo_item| %>
-      <tr>
-        <td>
-          <%= link_to todo_item.body, edit_todo_item_path(todo_item) %>
-        </td>
-          <td><%= todo_item.completed %></td>
-          <td><%= link_to 'Show', todo_item %></td>
-          <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+        <tr class="<%= todo_item.completed ? 'table-success' : 'table-warning' %>">
+        <%# make todo item name be the link to edit this will replace show and edit pages %>
+          <td><%= link_to todo_item.body, edit_todo_item_path(todo_item) %></td>
+          <td>            
+            <center>
+              <%= form_for(todo_item) do |f| %>
+              <%= f.text_field :body, type: 'hidden' %>
+                <% if todo_item.completed %>
+                  <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
+                  <%= f.submit 'Undo', class: 'btn btn-outline-secondary btn-sm' %>
+                <% else %>
+                  <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
+                  <%= f.submit 'Check off', class: 'btn btn-outline-secondary btn-sm' %>
+                <% end %>
+              <% end %>
+            </center>
+          </td>
           <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
     <% end %>
   </tbody>
 </table>
